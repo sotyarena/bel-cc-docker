@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mode Juri — Bel Cerdas Cermat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container wide">
+    <header>
+      <div>
+        <div class="eyebrow">JUDGE CONTROL PANEL</div>
+        <h1>🎛️ Panel Juri</h1>
+        <p>Kontrol ronde dan lihat urutan tim yang menekan buzzer.</p>
+      </div>
+      <a class="judge-link" href="/">👤 Mode Peserta</a>
+    </header>
+
+    <section class="card controls">
+      <div>
+        <span class="label">STATUS RONDE</span>
+        <strong id="status">BERHENTI</strong>
+      </div>
+      <div class="button-group">
+        <button class="success" onclick="startRound()">▶ Mulai / Ronde Baru</button>
+        <button class="danger" onclick="resetRound()">↺ Reset Ronde</button>
+      </div>
+    </section>
+
+    <section class="winner card">
+      <div class="eyebrow">PEMENCET TERCEPAT</div>
+      <div id="winner">Belum ada yang menekan buzzer</div>
+    </section>
+
+    <section class="card">
+      <h2>Urutan Pemencet</h2>
+      <div id="results" class="results"></div>
+    </section>
+
+    <section class="card">
+      <h2>Tim Terdaftar</h2>
+      <div id="teams" class="teams-grid"></div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/judge.js"></script>
+</body>
+</html>

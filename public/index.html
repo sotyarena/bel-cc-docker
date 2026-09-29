@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bel Cerdas Cermat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div>
+        <div class="eyebrow">REAL-TIME QUIZ BUZZER</div>
+        <h1>🔔 Bel Cerdas Cermat</h1>
+        <p>Peserta membuat tim, masuk ke tim, lalu berlomba menekan tombol tercepat.</p>
+      </div>
+      <a class="judge-link" href="/judge.html">🎛️ Mode Juri</a>
+    </header>
+
+    <section class="card">
+      <h2>Buat Tim</h2>
+      <div class="form-row">
+        <input id="teamName" placeholder="Nama tim, contoh: Garuda" maxlength="30">
+        <select id="teamColor">
+          <option value="#2563eb">Biru</option>
+          <option value="#dc2626">Merah</option>
+          <option value="#16a34a">Hijau</option>
+          <option value="#9333ea">Ungu</option>
+          <option value="#ea580c">Oranye</option>
+          <option value="#0891b2">Cyan</option>
+        </select>
+        <button onclick="createTeam()">+ Buat Tim</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Gabung sebagai Peserta</h2>
+      <div class="form-row">
+        <select id="teamSelect"></select>
+        <input id="memberName" placeholder="Nama peserta" maxlength="30">
+        <button onclick="joinTeam()">Gabung Tim</button>
+      </div>
+      <div id="myTeam" class="my-team hidden"></div>
+    </section>
+
+    <section class="teams-grid" id="teams"></section>
+
+    <section id="buzzerArea" class="card buzzer-card hidden">
+      <div class="status" id="roundStatus">Menunggu juri memulai ronde...</div>
+      <button id="buzzButton" class="buzzer" onclick="buzz()">BUZZ!</button>
+      <p class="hint">Tekan satu kali. Setelah menekan, tunggu hasil dari juri.</p>
+    </section>
+  </main>
+
+  <div id="toast"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
